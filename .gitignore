@@ -1,12 +1,72 @@
-*.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+import java.util.Scanner;
 
-# Package Files #
-*.jar
-*.war
-*.ear
+public class StringHandling
+{
+    public static void main(String args[])
+    {
+        Scanner sc= new Scanner(System.in);
+        
+        String name1 = "";
+        int lengthName = 0;
+        String PC = "";
+        String password = "";
+        String password1 = "";
+        Boolean pass = false;
+        String name = "";
+        int space1 = 0;
+        String lastname = "";
+        int namelength = 0;
+        String name2 = "";
+        int FirstSpace = 0;
+        int LastSpace = 0;
+        char firstInitial;
+        char middleInitial;
+        char lastInitial;
+        String firstName = "";
+        String middleName = "";
+        String lastName = "";
+        
+        System.out.println("Enter your name");
+        name1 = sc.nextLine();
+        lengthName = name1.length(); 
+        System.out.println(lengthName);
+        
+        System.out.println("Enter your postcode");
+        PC = sc.nextLine();
+        System.out.println(PC.toUpperCase());
+        while (pass == false) {
+        System.out.println("Enter a password");
+        password = sc.nextLine();
+        System.out.println("Re-enter your password");
+        password1 = sc.nextLine();
+          if (password.equals(password1)){
+            System.out.println("Password verified");
+            pass = true;
+          }
+          else {
+            System.out.println("Passwords do not match, retry");
+            pass = false;
+          }
+        }
+        System.out.println("Enter your first name and your last name");
+        name = sc.nextLine();
+        space1 = name.indexOf(' ');
+        namelength = name.length();
+        lastname = name.substring(space1, namelength);
+        System.out.println("Hello " + lastname);
+        
+        System.out.println("Enter your first, middle and last name");
+        name2 = sc.nextLine();
+        FirstSpace = name2.indexOf(" ");
+        firstName = name2.substring(0, FirstSpace);
+        LastSpace = name2.lastIndexOf(" ");
+        middleName = name2.substring(FirstSpace + 1 , LastSpace);
+        lastName = name2.substring(LastSpace + 1, name2.length());
+        firstInitial = firstName.charAt(0);
+        middleInitial = middleName.charAt(0);
+        lastInitial = lastName.charAt(0);
+        System.out.println(firstInitial + middleInitial + lastInitial);
+    }
+}
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
